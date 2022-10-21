@@ -31,6 +31,10 @@ class FaitController extends Controller
         );
     }
 
+    public function getVariable(){
+        
+    }
+
     /**
      * Lists all Fait models.
      *

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "fait".
@@ -41,7 +42,6 @@ class Fait extends \yii\db\ActiveRecord
             [['description_fait', 'valeur'], 'string'],
             [['id_fait'], 'unique'],
             [['patient_id'], 'exist', 'skipOnError' => true, 'targetClass' => Patient::className(), 'targetAttribute' => ['patient_id' => 'id_patient']],
-            [['type_fait_id'], 'exist', 'skipOnError' => true, 'targetClass' => TypeFait::className(), 'targetAttribute' => ['type_fait_id' => 'id_type_fait']],
             [['variable_id'], 'exist', 'skipOnError' => true, 'targetClass' => Variable::className(), 'targetAttribute' => ['variable_id' => 'id_variable']],
         ];
     }
@@ -57,7 +57,6 @@ class Fait extends \yii\db\ActiveRecord
             'variable_id' => Yii::t('app', 'Variable ID'),
             'valeur' => Yii::t('app', 'Valeur'),
             'patient_id' => Yii::t('app', 'Patient ID'),
-            'type_fait_id' => Yii::t('app', 'Type Fait ID'),
         ];
     }
 
@@ -98,6 +97,10 @@ class Fait extends \yii\db\ActiveRecord
      */
     public function getVariable()
     {
-        return $this->hasOne(Variable::className(), ['id_variable' => 'variable_id']);
+        return $this->hasOne(Variable::className(), [ 'variable_id' =>  'id_variable']);
+    }
+
+    public function getVariableName(){
+        return $this->variable->nom_variable;
     }
 }

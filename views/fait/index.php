@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php var_dump($dataProvider->getModels());?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -36,18 +36,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_fait',
             'description_fait',
             ///'variable_id',
-            array(
-
+            [
                 'header' => 'Variable',
           
-                'value' => function($value, $model, $index) {
-          
-                  $a = Variable::find(['id_variable' => $value->variable_id])
+                'value' => function($data) {
+                  var_dump($data);
+                  $a = Variable::find(['id_variable' => $data->variable_id])
                                             ->select(['nom_variable'])
                                             ->one();
                   return $a['nom_variable'];
                 }
-            ),
+            ]              
+            ,
             //'patient_id',
             array(
 
