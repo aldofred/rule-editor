@@ -32,8 +32,8 @@ class Regle extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_regle'], 'required'],
-            [['id_regle', 'type_regle_id'], 'default', 'value' => null],
+            //[['id_regle'], 'required'],
+            [['type_regle_id'], 'default', 'value' => null],
             [['id_regle', 'type_regle_id'], 'integer'],
             [['nom_regle', 'description_regle'], 'string'],
             [['id_regle'], 'unique'],

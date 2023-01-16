@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Fait;
 use app\models\FaitSearch;
+use GuzzleHttp\Psr7\Request;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -44,7 +45,7 @@ class FaitController extends Controller
     {
         $searchModel = new FaitSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-
+        //return var_dump($this->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

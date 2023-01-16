@@ -41,6 +41,7 @@ class RegleController extends Controller
         $searchModel = new RegleSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+        //return var_dump($dataProvider);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

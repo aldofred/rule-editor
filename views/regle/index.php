@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -35,17 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_regle',
             'nom_regle',
             'description_regle',
-            //'type_regle_id',
+            'type_regle_id',
             array(
 
                 'header' => 'Type de règle',
           
-                'value' => function($value, $model, $index) {
-          
-                  $a = TypeRegle::find(['id_type_regle' => $value->type_regle_id])
-                                            ->select(['libelle_type_regle'])
-                                            ->one();
-                  return $a['libelle_type_regle'];
+                'value' => function($model, $index) {
+                    
+                    return $model->typeRegle->libelle_type_regle;
                 }
             ),
             [
