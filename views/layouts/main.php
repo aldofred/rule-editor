@@ -48,8 +48,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Connexion', 'url' => ['/site/login']];
     } else {
         $menuItems = [
-            ['label'=> 'Déconnexion','url' => ['/site/logout'],'linkOptions' => ['data-method' => 'post']],
-            ['label' => 'Home', 'url' => ['/site/index']],
+            //['label' => 'Home', 'url' => ['/site/index']],
             /* ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Contact', 'url' => ['/site/contact']], */
@@ -58,8 +57,9 @@ AppAsset::register($this);
             ['label' => 'Indicateur', 'url' => ['/indicateur/index']],
             ['label' => 'Conditions', 'url' => ['/condition/index']],
             ['label' => 'Faits', 'url' => ['/fait/index']],
-            ['label' => 'Utilisateurs', 'url' => ['//index']],
-            ['label' => 'Opérateurs de comparaison', 'url' => ['/operateur-comparaison/index']]
+            /* ['label' => 'Utilisateurs', 'url' => ['//index']], */
+            ['label' => 'Opérateurs de comparaison', 'url' => ['/operateur-comparaison/index']],
+            ['label'=> 'Déconnexion','url' => ['/site/logout'],'linkOptions' => ['data-method' => 'post']],
         ];
 
     }
